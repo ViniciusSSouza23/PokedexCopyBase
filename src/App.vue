@@ -1,10 +1,8 @@
-<script setup>
-import { RouterView } from 'vue-router'
-</script>
-
 <template>
-
-
+  <header-component/>
   <RouterView />
 </template>
-
+<script setup>
+import { RouterView } from "vue-router";
+import HeaderComponent from "./components/HeaderComponent.vue";
+</script>

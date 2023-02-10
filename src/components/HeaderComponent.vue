@@ -13,7 +13,6 @@
           <router-link :to="{ name: 'home' }">Home</router-link>
           <router-link class="mx-5" to="/">Pokemons</router-link>
           <router-link to="/">Search</router-link>
-          
         </div>
       </div>
     </div>
@@ -23,7 +22,7 @@
 .header-component {
   height: 10vh;
   background: #232526;
-  a{
+  a {
     color: #fff;
     text-decoration: none;
     font-size: 20px;

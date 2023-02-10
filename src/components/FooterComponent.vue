@@ -12,8 +12,6 @@
 .footer-component {
   width: 100%;
   background: #232526;
-  position: absolute;
-  bottom: 0;
   h6 {
     font-size: 14px;
     color: #e2e2e2;

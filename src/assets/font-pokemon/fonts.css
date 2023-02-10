@@ -1,0 +1,11 @@
+@font-face{
+  font-family: 'pokemon';
+  font-weight: 400;
+  src: url(./pokemon_hallow.woff) format(woff);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'pokemon';
+  font-weight: 700;
+  src: url(./pokemon_solid.woff) format(woff);
+}

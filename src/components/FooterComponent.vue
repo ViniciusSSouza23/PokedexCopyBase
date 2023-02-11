@@ -1,10 +1,7 @@
 <template>
   <footer class="footer-component">
     <div class="container py-3">
-      <div class="d-flex">
-        <h6>Developed by Vinicius Souza</h6>
-        <div></div>
-      </div>
+      <h6 class="text-center">Developed by Vinicius Souza</h6>
     </div>
   </footer>
 </template>

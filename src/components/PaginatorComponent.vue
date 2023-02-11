@@ -50,6 +50,7 @@ function prev() {
     background: transparent;
     outline: none !important;
     box-shadow: none !important;
+    border: none;
     &:disabled {
       border: none;
       opacity: 0.5;

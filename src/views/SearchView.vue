@@ -9,7 +9,9 @@
       opacity="0.9"
       background-color="#000"
     />
-    <div class="d-flex search-header py-5 justify-content-center">
+    <div
+      class="d-flex flex-md-row flex-column search-header py-5 justify-content-center align-items-center"
+    >
       <div class="form-group w-50 py-4 d-flex">
         <input
           v-model="searchTerm"
@@ -19,8 +21,21 @@
           id="search"
           placeholder="search..."
         />
-        <button type="submit" @click.prevent="search">Search</button>
+        <button
+          class="btn btn-primary d-none d-md-block"
+          type="submit"
+          @click.prevent="search"
+        >
+          Search
+        </button>
       </div>
+      <button
+        class="btn btn-primary w-25 mx-auto d-md-none"
+        type="submit"
+        @click.prevent="search"
+      >
+        Search
+      </button>
     </div>
     <div class="content container py-5">
       <template v-if="!enter">
@@ -59,6 +74,7 @@ import { useSearch } from "@/stores/searchPokemon.js";
 import PokemonSmallCard from "@/components/pokemons/PokemonSmallCard.vue";
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/css/index.css";
+import { ElMessage } from "element-plus";
 
 const store = useSearch();
 const searchTerm = ref("");
@@ -76,13 +92,20 @@ const canEnter = computed(() => {
 });
 
 function search() {
-  isLoading.value = true;
-  store.searchPokemon(searchTerm.value).finally(() => {
-    setTimeout(() => {
-      enter.value = true;
-      isLoading.value = false;
-    }, 1100);
-  });
+  if (searchTerm.value) {
+    isLoading.value = true;
+    store.searchPokemon(searchTerm.value).finally(() => {
+      setTimeout(() => {
+        enter.value = true;
+        isLoading.value = false;
+      }, 1100);
+    });
+  } else {
+    ElMessage({
+      message: "You need to type something for searches",
+      type: "warning",
+    });
+  }
 }
 </script>
 <style lang="scss" scoped>

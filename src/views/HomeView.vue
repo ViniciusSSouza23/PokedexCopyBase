@@ -4,8 +4,10 @@
       <div class="col-lg-10">
         <div class="row">
           <div class="col-lg-6 order-lg-2">
-            <h2 class="mt-5 pt-5 title mb-5">Welcome to the Pokedex</h2>
-            <p>
+            <h2 class="mt-5 pt-5 title mb-5 text-lg-start text-center">
+              Welcome to the Pokedex
+            </h2>
+            <p class="text-lg-start text-center">
               Hello everyone! Today I would like to introduce my personal
               project, a Pokedex! For those who are unfamiliar, a Pokedex is a
               digital encyclopedia of all the Pokemon creatures in the popular
@@ -13,7 +15,7 @@
               each Pokemon, including their type, abilities, stats, and more.
               So, without further ado, let's dive into the world of Pokemon!
             </p>
-            <p>
+            <p class="text-lg-start text-center">
               If you are a developer feel free to send me suggestions, you can
               also access the code on my
               <a
@@ -38,7 +40,7 @@
 </template>
 <style lang="scss" scoped>
 .home-view {
-  min-height: 82vh;
+  min-height: 85vh;
   p {
     font-size: 18px;
     line-height: 24px;

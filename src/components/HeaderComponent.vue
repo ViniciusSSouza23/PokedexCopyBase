@@ -10,11 +10,13 @@
           />
         </router-link>
         <div class="ms-md-5 pt-4 pt-lg-0 d-flex align-items-center">
-          <router-link :to="{ name: 'home' }">Home</router-link>
-          <router-link class="mx-lg-5 mx-3" :to="{ name: 'pokemons' }"
+          <router-link class="link" :to="{ name: 'home' }">Home</router-link>
+          <router-link class="mx-lg-5 mx-3 link" :to="{ name: 'pokemons' }"
             >Pokemons</router-link
           >
-          <router-link :to="{ name: 'search' }">Search</router-link>
+          <router-link class="link" :to="{ name: 'search' }"
+            >Search</router-link
+          >
         </div>
       </div>
     </div>
@@ -28,9 +30,16 @@
     color: #fff;
     text-decoration: none;
     font-size: 20px;
-    @media screen and (max-width:767px) {
+    @media screen and (max-width: 767px) {
       font-size: 16px;
       text-align: center;
+    }
+  }
+  .link {
+    &.router-link-exact-active {
+      background: rgba(1, 65, 108, 0.05);
+      border-bottom: 2px solid #ffcc00;
+      color: #ffcc00 !important;
     }
   }
 }

@@ -17,8 +17,7 @@ export const useSearch = defineStore("search", () => {
       })
       .catch(() => {
         err.value = false;
-        console.log("entrou")
-        
+        console.log("entrou");
       });
   }
   async function getSpecies(id) {

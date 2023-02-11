@@ -11,25 +11,44 @@
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <paginator-component />
+        <paginator-component @next="nextPage" @prev="prevPage" :page="page" />
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { useGetAllPokemons } from "@/stores/pokemons.js";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import PokemonSmallCard from "@/components/pokemons/PokemonSmallCard.vue";
 import PaginatorComponent from "@/components/PaginatorComponent.vue";
-
+import { useRoute, useRouter } from "vue-router";
 const store = useGetAllPokemons();
+const route = useRoute();
+const router = useRouter();
+const page = ref(route.query.page || 1);
 
 onMounted(() => {
+  if (page.value != 1) {
+    store.offset = 20 * page.value;
+  }
   store.getPokemons();
 });
+
 const pokemons = computed(() => {
   return store.pokemons;
 });
+
+function nextPage() {
+  page.value++;
+  store.nextPage(page.value);
+  router.push({ ...route, query: { page: page.value } });
+}
+
+function prevPage() {
+  page.value--;
+  store.prevPage(page.value);
+  router.push({ ...route, query: { page: page.value } });
+}
 </script>
 
 <style lang="scss" scoped>

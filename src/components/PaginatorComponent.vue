@@ -1,7 +1,7 @@
 <template>
   <div class="paginator-component">
     <div class="d-flex align-items-center">
-      <button :disabled="page <= 1" class="btns">
+      <button @click="prev" :disabled="page <= 1" class="btns">
         <img
           class="prev"
           width="28"
@@ -10,18 +10,27 @@
         />
       </button>
       <div class="number-page text-center">
-        <small>{{ page }}</small>
+        <small>{{ props.page }}</small>
       </div>
-      <button class="btns">
+      <button @click="next" class="btns">
         <img width="28" src="@/assets/imgs/next-white.png" alt="Next" />
       </button>
     </div>
   </div>
 </template>
 <script setup>
-import { useRoute } from "vue-router";
-const route = useRoute();
-const page = parseInt(route.query.page) || 1;
+import { defineEmits } from "vue";
+
+const props = defineProps(["page"]);
+const emit = defineEmits(["next", "prev"]);
+
+function next() {
+  console.log(props.page);
+  emit("next");
+}
+function prev() {
+  emit("prev");
+}
 </script>
 <style lang="scss" scoped>
 .paginator-component {

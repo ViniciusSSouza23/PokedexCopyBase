@@ -11,7 +11,9 @@
         </router-link>
         <div class="ms-5 d-flex align-items-center">
           <router-link :to="{ name: 'home' }">Home</router-link>
-          <router-link class="mx-5" to="/">Pokemons</router-link>
+          <router-link class="mx-5" :to="{ name: 'pokemons' }"
+            >Pokemons</router-link
+          >
           <router-link to="/">Search</router-link>
         </div>
       </div>

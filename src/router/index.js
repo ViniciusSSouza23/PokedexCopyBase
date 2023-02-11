@@ -14,6 +14,11 @@ const router = createRouter({
       name: "pokemons",
       component: () => import("../views/PokemonsView.vue"),
     },
+    {
+      path: "/pokemon/:id",
+      name: "pokemon",
+      component: () => import("../views/PokemonView.vue"),
+    },
   ],
 });
 

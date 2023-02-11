@@ -1,6 +1,6 @@
 <template>
   <div class="pokemon-view container">
-    <button @click="router.go(-1)" class="btn text-white">Voltar</button>
+    <button @click="router.go(-1)" class="btn text-white mt-4">Back</button>
     <div class="row justify-content-center py-5">
       <div class="col-lg-8">
         <pokemon-card :item="pokemon" />

@@ -28,8 +28,10 @@ const router = useRouter();
 const page = ref(route.query.page || 1);
 
 onMounted(() => {
-  if (page.value != 1) {
+  if (page.value > 1) {
     store.offset = 20 * page.value;
+  } else {
+    store.offset = 0;
   }
   store.getPokemons();
 });
@@ -39,8 +41,8 @@ const pokemons = computed(() => {
 });
 
 function nextPage() {
-  page.value++;
   store.nextPage(page.value);
+  page.value++;
   router.push({ ...route, query: { page: page.value } });
 }
 

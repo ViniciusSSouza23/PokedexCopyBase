@@ -24,8 +24,11 @@ export const useGetAllPokemons = defineStore("pokemons", () => {
     getPokemons();
   }
   function prevPage(page) {
-    if (offset.value > 0) {
+    if (page > 1) {
       offset.value = page * 20;
+      getPokemons();
+    } else {
+      offset.value = 0;
       getPokemons();
     }
   }

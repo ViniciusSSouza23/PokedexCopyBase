@@ -14,7 +14,7 @@
           <router-link class="mx-5" :to="{ name: 'pokemons' }"
             >Pokemons</router-link
           >
-          <router-link to="/">Search</router-link>
+          <router-link :to="{ name: 'search' }">Search</router-link>
         </div>
       </div>
     </div>

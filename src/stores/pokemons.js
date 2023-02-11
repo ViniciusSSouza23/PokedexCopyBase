@@ -12,9 +12,13 @@ export const useGetAllPokemons = defineStore("pokemons", () => {
 
   async function getPokemons() {
     await window.axios.get("/pokemon").then((response) => {
-      this.pokemons = response.data.results;
-      console.log(response.data);
+      const arrUrl = response.data.results.map((c) => window.axios.get(c.url));
+
+      Promise.all(arrUrl).then((response) => {
+        pokemons.value = response.map((c) => c.data);
+      });
     });
   }
+
   return { pokemons, getPokemons };
 });

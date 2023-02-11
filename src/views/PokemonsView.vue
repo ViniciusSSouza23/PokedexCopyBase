@@ -10,6 +10,9 @@
           <pokemon-small-card :item="pokemon" />
         </div>
       </div>
+      <div class="d-flex justify-content-center">
+        <paginator-component />
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +20,7 @@
 import { useGetAllPokemons } from "@/stores/pokemons.js";
 import { computed, onMounted } from "vue";
 import PokemonSmallCard from "@/components/pokemons/PokemonSmallCard.vue";
+import PaginatorComponent from "@/components/PaginatorComponent.vue";
 
 const store = useGetAllPokemons();
 

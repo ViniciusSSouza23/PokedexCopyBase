@@ -25,7 +25,6 @@ const props = defineProps(["page"]);
 const emit = defineEmits(["next", "prev"]);
 
 function next() {
-  console.log(props.page);
   emit("next");
 }
 function prev() {
